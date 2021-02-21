@@ -43,24 +43,30 @@ void loop() {
 // function for turning buzzer on for 3 seconds before a light changes
 void buzzerAlert() {
     int i;
+
+    // output a frequency
     for (i=0; i < 1500; i++)
     {
-      digitalWrite(buzzer,HIGH);
-      delay(1);//wait for Xms
-      digitalWrite(buzzer,LOW);
-      delay(1);//wait for Xms
+      digitalWrite(buzzer,HIGH); // turn buzzer on
+      delay(1);// wait for 1 ms
+      digitalWrite(buzzer,LOW); // turn buzzer off
+      delay(1);// wait for 1 ms
     }
 }
 
+// function to check if button has been pressed
 bool check_button() {
   int i;
+
+  // loop to check if button has been pressed
   for (i=0; i < 1000; i++)
   {
+    // if button is pressed
     if (digitalRead(button) == LOW)
       {
        return false; 
       }
-      delay(1);
+      delay(1); // wait 1 ms
   }
   return true;
 }
