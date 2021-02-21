@@ -15,10 +15,10 @@ void setup() {
   // if button is pressed, begin traffic lights simulation
   while (isWait)
   {
-    if (digitalRead(button) == LOW)
-    {
-     isWait = false; 
-    }
+    digitalWrite(redLED, HIGH); // turn red LED on
+    isWait = check_button();    // checks if the start button has been pressed and waits for 1 second
+    digitalWrite(redLED, LOW);  // turn red LED off
+    isWait = check_button();    // checks if the start button has been pressed and waits for 1 second
   }
 }
 
@@ -50,4 +50,17 @@ void buzzerAlert() {
       digitalWrite(buzzer,LOW);
       delay(1);//wait for Xms
     }
+}
+
+bool check_button() {
+  int i;
+  for (i=0; i < 1000; i++)
+  {
+    if (digitalRead(button) == LOW)
+      {
+       return false; 
+      }
+      delay(1);
+  }
+  return true;
 }
