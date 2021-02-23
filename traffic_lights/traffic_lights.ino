@@ -22,22 +22,22 @@ void setup() {
   }
 }
 
-// traffic lights simulation starts if button is pressed
+// traffic lights simulation starts in the loop() function if button is pressed
 void loop() {
     digitalWrite(redLED, HIGH); // turn red LED on
-    delay(12000);               // leave on for 15 seconds
-    buzzerAlert();                 // alert that lights are changing 
+    delay(12000);               // wait for 12 seconds
+    buzzerAlert();              // call buzzerAlert() function to alert that lights are changing while LED is on 
     digitalWrite(redLED, LOW); // turn red LED off
     
     digitalWrite(greenLED, HIGH); // turn green LED on
-    delay(12000);                 // leave on for 15 seconds
-    buzzerAlert();                 // alert that lights are changing
-    digitalWrite(greenLED, LOW);  // turn green LED off
+    delay(12000);                 // wait for 12 seconds
+    buzzerAlert();                // call buzzerAlert() function to alert that lights are changing while LED is on 
+    digitalWrite(greenLED, LOW); // turn green LED off
   
     digitalWrite(yellowLED, HIGH); // turn yellow LED on
-    delay(1000);                  // leave on for 15 seconds
-    buzzerAlert();                 // alert that lights are changing
-    digitalWrite(yellowLED, LOW);  // turn yellow LED off
+    delay(1000);                  // wait for 1 second
+    buzzerAlert();                // call buzzerAlert() function to alert that lights are changing while LED is on
+    digitalWrite(yellowLED, LOW); // turn yellow LED off
 }
 
 // function for turning buzzer on before a light changes
