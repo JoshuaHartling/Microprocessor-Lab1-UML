@@ -12,7 +12,7 @@ void setup() {
   pinMode(buzzer, OUTPUT);
   pinMode(button, INPUT_PULLUP);
 
-  // if button is pressed, begin traffic lights simulation
+  // red light blinks and checks if button is pressed
   while (isWait)
   {
     digitalWrite(redLED, HIGH); // turn red LED on
@@ -22,10 +22,11 @@ void setup() {
   }
 }
 
+// traffic lights simulation starts if button is pressed
 void loop() {
     digitalWrite(redLED, HIGH); // turn red LED on
     delay(12000);               // leave on for 15 seconds
-    buzzerAlert();                 // alert that lights are changing
+    buzzerAlert();                 // alert that lights are changing 
     digitalWrite(redLED, LOW); // turn red LED off
     
     digitalWrite(greenLED, HIGH); // turn green LED on
@@ -33,14 +34,13 @@ void loop() {
     buzzerAlert();                 // alert that lights are changing
     digitalWrite(greenLED, LOW);  // turn green LED off
   
-    // call buzzerAlert() function to alert that lights are changing
     digitalWrite(yellowLED, HIGH); // turn yellow LED on
     delay(1000);                  // leave on for 15 seconds
     buzzerAlert();                 // alert that lights are changing
     digitalWrite(yellowLED, LOW);  // turn yellow LED off
 }
 
-// function for turning buzzer on for 3 seconds before a light changes
+// function for turning buzzer on before a light changes
 void buzzerAlert() {
     int i;
 
